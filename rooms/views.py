@@ -10,6 +10,6 @@ def rooms(request):
 
 @login_required
 def room(request, slug):
-    room = Room.objects.get(slug=self.slug)
+    room = Room.objects.get(slug=slug)
     context = {'room': room}
     return render(request, 'rooms/room.html', context)
