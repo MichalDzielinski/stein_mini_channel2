@@ -93,4 +93,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR, 'static']
 #endregion STATIC FILES & MEDIA
 
+#region LOGIN & LOGOUT REDIRECTS
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/rooms/'
+LOGIN_URL = '/login/'
+#endregion LOGIN & LOGOUT REDIRECTS
 
