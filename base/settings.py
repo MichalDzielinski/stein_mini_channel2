@@ -18,6 +18,8 @@ ASGI_APPLICATION = 'base.asgi.application'
 #endregion DEPLOYMENT SETTINGS & BASICS
 
 INSTALLED_APPS = [
+    'daphne',
+    'channels',
     'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -25,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channels',
+    
     #custom apps
     'app',
     'rooms',
@@ -100,3 +102,8 @@ LOGIN_REDIRECT_URL = '/rooms/'
 LOGIN_URL = '/login/'
 #endregion LOGIN & LOGOUT REDIRECTS
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
