@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Room
+from .models import Room, Message
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -11,5 +11,6 @@ def rooms(request):
 @login_required
 def room(request, slug):
     room = Room.objects.get(slug=slug)
-    context = {'room': room}
+    messages = Message.objects.filter(room=room)[0:25]
+    context = {'room': room, 'messages': messages}
     return render(request, 'rooms/room.html', context)

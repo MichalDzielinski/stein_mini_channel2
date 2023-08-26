@@ -10,6 +10,14 @@
 
 <div class="mx-4 p-4 bg-white rounded-xl lg:w-2/4 lg:mx-auto">
     <div class="chat-messages space-y-3" id="chat-messages">
+        {% for m in messages %}
+
+            <div class="p-4 bg-gray-200 rounded-xl">
+                <p class="font-semibold">{{m.user.username}}</p>
+                <p>{{m.content}}</p>
+            </div>'
+        
+        {% endfor %}
         
     </div>
 </div>
@@ -52,6 +60,8 @@
                 html += '<p>'+data.message+'</p></div>'
         
             document.querySelector('#chat-messages').innerHTML += html;
+
+            scrollToBottom();
         }else {
             alert('The message was empty!')
         }
@@ -81,7 +91,13 @@
 
     }
 
+    function scrollToBottom(){
+        const objDiv = document.querySelector('#chat-messages');
+        objDiv.scrollTop = objDiv.scrollHeight;
+    }
 
+
+    scrollToBottom();
 
 
 
